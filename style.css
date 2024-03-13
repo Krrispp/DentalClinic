@@ -46,19 +46,19 @@ a, a:hover, a:active, a:visited {
   position: absolute;
   top: 0;
   left: 0;
-  right: 40px;
-  height: 40px;
+  right: 0;
+  height: 60px;
   text-align: center;
 }
 
 .mobile #titleBar {
   height: 50px;
-  right: 50px;
+  right: 0;
 }
 
 /* If there is a fullscreen button the title bar must make space for it */
 body.fullscreen-enabled #titleBar {
-  right: 80px;
+  right: 0;
 }
 
 body.fullscreen-enabled.mobile #titleBar {
@@ -67,28 +67,32 @@ body.fullscreen-enabled.mobile #titleBar {
 
 /* If there are multiple scenes the title bar must make space for the scene list toggle */
 body.multiple-scenes #titleBar {
-  left: 40px;
+  left: 0;
 }
 
 body.multiple-scenes.mobile #titleBar {
-  left: 50px;
+  left: 0;
 }
 
 #titleBar .sceneName {
   width: 100%;
   height: 100%;
-  line-height: 30px;
-  padding: 5px;
-  background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.8);
+  line-height: 60px;
+  padding: 5px;  
+  background: linear-gradient(0deg, rgba(0,0,0,0) 1%, rgba(0,0,0, 0.28) 100%);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  -moz-user-select: text;
-  -webkit-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .mobile #titleBar .sceneName {
@@ -204,11 +208,13 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   position: absolute;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
+  display: flex;
   padding: 5px;
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .mobile #sceneListToggle {
@@ -225,9 +231,6 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 }
 
 #sceneListToggle .icon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   width: 30px;
   height: 30px;
 }
@@ -255,9 +258,9 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 #sceneList {
   position: absolute;
-  top: 0;
+  top: 3px;
   left: -220px;
-  padding-top: 40px;
+  padding-top: 52px;
   width: 220px;
   max-height: 100%;
   overflow-x: hidden;
@@ -265,6 +268,8 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   margin-left: 0;
   -webkit-transition: margin-left 0.5s ease-in-out;
   transition: margin-left 0.5s ease-in-out;
+  background-color: black;
+  border-radius: 6px;
 }
 
 .mobile #sceneList {
@@ -273,8 +278,8 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 #sceneList .scenes {
   width: 100%;
-  background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.8);
+  background-color: black;
+  border-radius: 6px;
 }
 
 .mobile #sceneList {
@@ -292,13 +297,13 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 }
 
 #sceneList.enabled {
-  margin-left: 220px;
+  margin-left: 223px;
 }
 
 #sceneList .scene {
   display: block;
   width: 100%;
-  height: 30px;
+  height: 60px;
 }
 
 .mobile #sceneList .scene {
@@ -309,24 +314,22 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   width: 100%;
   height: 100%;
   padding: 0 15px;
-  line-height: 30px;
+  line-height: 60px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .mobile #sceneList .scene .text {
-  line-height: 40px;
+  line-height: 60px;
 }
 
 .no-touch #sceneList .scene:hover {
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 #sceneList .scene.current {
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Hide scene list when only a single scene exists */
@@ -337,8 +340,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 /* Link hotspot */
 
 .link-hotspot {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin-left: -30px;
   margin-top: -30px;
   opacity: 0.9;
@@ -351,8 +354,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .mobile .link-hotspot {
-  width: 70px;
-  height: 70px;
+  width: 45px;
+  height: 45px;
 }
 
 .link-hotspot-icon {
@@ -364,7 +367,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .link-hotspot-tooltip {
   position: absolute;
   left: 100%;
-  top: 14px; /* ( 60 - (16 + 2*8) ) / 2 */
+  top: 2px; /* ( 60 - (16 + 2*8) ) / 2 */
 
   margin-left: 3px;
 
@@ -376,8 +379,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
   border-radius: 5px;
 
-  background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.8);
+  background-color: black;
 
   color: #fff;
 
